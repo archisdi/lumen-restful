@@ -59,13 +59,13 @@ $app->singleton(
 |
 */
 
-// $app->middleware([
-//    App\Http\Middleware\ExampleMiddleware::class
-// ]);
+ $app->middleware([
+    App\Http\Middleware\ApiGuard::class
+ ]);
 
-// $app->routeMiddleware([
-//     'auth' => App\Http\Middleware\Authenticate::class,
-// ]);
+ $app->routeMiddleware([
+    'jwt' => App\Http\Middleware\JwtAuth::class
+ ]);
 
 /*
 |--------------------------------------------------------------------------
