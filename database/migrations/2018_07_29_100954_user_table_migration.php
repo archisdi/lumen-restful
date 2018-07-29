@@ -17,7 +17,7 @@ class UserTableMigration extends Migration
             $table->increments('id');
             $table->string('name', 50);
             $table->string('username', 20);
-            $table->string('password', 20);
+            $table->string('password');
             $table->timestamps();
         });
     }
