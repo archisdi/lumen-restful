@@ -11,8 +11,8 @@
 |
 */
 
-$router->get('/', function () use ($router) {
-    return $router->app->version();
+$router->get('/', function () {
+    return api_response('welcome to lumen-api-server');
 });
 
 $router->post('/login', 'AuthController@login');
