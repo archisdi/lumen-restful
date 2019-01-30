@@ -14,11 +14,13 @@ class UserTableMigration extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->increments('id');
+            $table->string('uuid');
             $table->string('name', 50);
             $table->string('username', 20);
             $table->string('password');
             $table->timestamps();
+
+            $table->primary('uuid');
         });
     }
 
