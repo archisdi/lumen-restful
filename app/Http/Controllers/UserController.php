@@ -8,8 +8,8 @@ class UserController extends Controller
 {
 
     public function __construct(Request $request) {
-        $this->middleware('jwt');
         parent::__construct($request);
+        $this->middleware('jwt');
     }
 
     public function profile(){

@@ -45,6 +45,13 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-        return parent::render($request, $exception);
+        $rendered = parent::render($request, $exception);
+
+        $stack = env('APP_DEBUG', config('app.debug', false)) ? $exception->getTrace() : null;
+
+        return api_response('an error occured', [
+            'detail' => $exception->getMessage(),
+            'stack' => $stack
+        ], $rendered->getStatusCode());
     }
 }
