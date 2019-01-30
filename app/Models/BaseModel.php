@@ -7,8 +7,8 @@ use Webpatser\Uuid\Uuid;
 abstract class BaseModel extends Model
 {
     protected $primaryKey = 'uuid';
-    public $incrementing = false;
 
+    public $incrementing = false;
 
     public static function boot()
     {

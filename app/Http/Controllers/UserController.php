@@ -15,5 +15,4 @@ class UserController extends Controller
     public function profile(){
         return api_response('user data successfully retrieved', $this->request->auth);
     }
-
 }
