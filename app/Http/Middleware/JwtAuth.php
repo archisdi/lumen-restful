@@ -28,7 +28,7 @@ class JwtAuth
 
         // find use and put it on the request class
         $user = User::find($credentials->sub);
-        if (!$user) return api_response('user not found', null, 404);
+        if (!$user) return api_response('user does not exist', null, 400);
 
         $request->auth = $user;
         return $next($request);

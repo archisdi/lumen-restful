@@ -9,11 +9,12 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
-    private $request;
-
-    public function __construct(Request $request) {
-        $this->request = $request;
-    }
+    private $rules = [
+        'login' => [
+            'username'  => 'required',
+            'password'  => 'required'
+        ]
+    ];
 
     protected function jwt(User $user) {
         $payload = [
@@ -27,10 +28,7 @@ class AuthController extends Controller
     }
 
     public function login() {
-        $this->validate($this->request, [
-            'username'  => 'required',
-            'password'  => 'required'
-        ]);
+        $this->validation($this->rules['login']);
 
         $user = User::where('username', $this->request->input('username'))->first();
         if (!$user) {
